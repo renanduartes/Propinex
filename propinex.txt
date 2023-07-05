@@ -1,0 +1,44 @@
+Propinex 1.0
+
+chegue com o caminhão do lixo na prefeitura para entregar o dinheiro da propina ao prefeito, antes da gaeco te pegar!
+
+- uma cidade de fundo com várias ruas (fundo cinza, e vários rect sendo as quadras)
+- uma viatura da gaeco percorre a cidade (número de viaturas aumenta cada vez que passa de fase)
+- player começa em um canto da cidade, e a prefeitura com o prefeito está no outro lado da cidade
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+
+
+- var fase = 1
+- fazer uma lista vazia com os carros da gaeco
+- fazer um for que adiciona carros na lista de acordo com o numero da fase que está
+- fazer um for que movimenta os carros que estão na lista de carros
+- fazer uma função para desenhar cada quadra
+- fixar as posições da primeira linha de quadras, e o restante fazer com base na primeira linha
+- criar uma variável com o tamanho da rua, para usar no cálculo das quadras
+- 
+- 
+
+MOVIMENTO GAECO
+
+começa movimentando para 1 direção
+a cada x segundos ele tenta mudar de direção aleatoriamente
+quando colide ele muda de direção aleatoriamente
+
+fazer função para movimentação sul, norte, leste e oeste. criar variável de nome "direcao", que atualiza toda vez que ele mudar de direção
+
+na função em que ele tenta mudar de direção, fazer condicionais de que se ele estiver indo na direção sul, não pode tentar mudar para norte, e assim por diante.
+
+criar função chamada "podemovimentar" que retorna true se puder movimentar ou false se houver colisão
+
+MOVIMENTO CAMINHAO
+
+- começa movimentando para direita
+- criar função para cada direção de movimentação dele, sempre indo pra frente verificando se tem colisão, e parar de movimentar quando colidir
+- 
