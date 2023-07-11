@@ -20,7 +20,7 @@ var quadraPadraoY = [ 10, 10, 10, 10, 10, 10,
                       190, 190, 190, 190, 190, 190,
                       370, 370, 370, 370, 370, 370,
                       550, 550, 550, 550, 550, 550,];
-
+var numeroGaecos = [0];
 gaecoX = 501;
 gaecoY = 700;
 gaecoW = 28;
@@ -30,9 +30,10 @@ caminhaoY = 250;
 caminhaoW = 28;
 caminhaoH = 28;
 velocidadeGaeco = 1;
+velocidadeCaminhao = 1;
 direcaoGaeco = 1; // 1 = NORTE, 2 = LESTE, 3 = SUL, 4 = OESTE
-var tentaMudarDirecaoGaeco = false;
-var codigoMudaDirecaoGaeco = 1;
+direcaoCaminhao = 3;
+proximaDirecaoCaminhao = 3;
 
 function desenhaQuadras(){
   for (let i = 0; i < quadraPadraoX.length; i++) {
@@ -114,26 +115,21 @@ function desenhaCaminhao(x,y)
 
 function movimentaGaeco(){
     if (colidiuGaeco()) {
-      console.log('colidiu');
       if (direcaoGaeco == 1) {
         gaecoY += 1;
         direcaoGaeco = getRandom(4);
-        console.log(direcaoGaeco);
         return direcaoGaeco;
       } else if (direcaoGaeco == 2) {
         gaecoX -= 1;
         direcaoGaeco = getRandom(4);
-        console.log(direcaoGaeco);
         return direcaoGaeco;
       } else if (direcaoGaeco == 3) {
         gaecoY -= 1;
         direcaoGaeco = getRandom(4);
-        console.log(direcaoGaeco);
         return direcaoGaeco
       } else if (direcaoGaeco == 4) {
         gaecoX += 1;
         direcaoGaeco = getRandom(4);
-        console.log(direcaoGaeco);
         return direcaoGaeco
       }      
     }else   if (direcaoGaeco == 1) {
@@ -145,11 +141,55 @@ function movimentaGaeco(){
     } else if (direcaoGaeco == 4) {
       gaecoX -= velocidadeGaeco    
     }
-  
-      console.log('Y= '+gaecoY);
-      console.log('X= '+gaecoX);
-  
-} 
+}
+
+
+function movimentaCaminhao(){
+  if (colidiuCaminhao()) {
+    if (direcaoCaminhao == 1) {
+      caminhaoY += velocidadeCaminhao;
+      direcaoCaminhao = proximaDirecaoCaminhao;
+      return direcaoCaminhao;
+    } else if (direcaoCaminhao == 2) {
+      caminhaoX -= velocidadeCaminhao;
+      direcaoCaminhao = proximaDirecaoCaminhao;
+      return direcaoCaminhao;
+    } else if (direcaoCaminhao == 3) {
+      caminhaoY -= velocidadeCaminhao;
+      direcaoCaminhao = proximaDirecaoCaminhao;
+      return direcaoCaminhao
+    } else if (direcaoCaminhao == 4) {
+      caminhaoX += velocidadeCaminhao;
+      direcaoCaminhao = proximaDirecaoCaminhao;
+      return direcaoCaminhao
+    }      
+  }else   if (direcaoCaminhao == 1) {
+    caminhaoY -= velocidadeCaminhao
+  } else if (direcaoCaminhao == 2) {
+    caminhaoX += velocidadeCaminhao    
+  } else if (direcaoCaminhao == 3) {
+    caminhaoY += velocidadeCaminhao    
+  } else if (direcaoCaminhao == 4) {
+    caminhaoX -= velocidadeCaminhao    
+  }
+}
+
+function verificaGanhou() {
+  if (caminhaoY > 320-caminhaoH &&
+    caminhaoY < 320+60 &&
+    caminhaoX == 631) {
+    console.log('ganhou');
+  }
+}
+
+function verificaPerdeu() {
+  if (caminhaoX-caminhaoW >= gaecoX &&
+    caminhaoX <= gaecoX+gaecoW &&
+    caminhaoY-caminhaoH >= gaecoY &&
+    caminhaoY <= gaecoY+gaecoH) {
+    console.log('perdeu!');
+  }  
+}
 
 
 function getRandom(max) {
@@ -168,9 +208,23 @@ function gameLoop(){
   desenhaPrefeito(640,320);
   desenhaQuadras();
   movimentaGaeco();
-  // mudaDirecaoGaeco();
-  // mudaVariavelDirecaoGaeco();
+  movimentaCaminhao();
+  verificaGanhou();
+  verificaPerdeu();
 }
+
+document.addEventListener('keydown',function (evt){
+  if (evt.keyCode == 38) {
+    proximaDirecaoCaminhao = 1;
+  }else if (evt.keyCode == 40) {
+    proximaDirecaoCaminhao = 3;   
+  }else if (evt.keyCode == 37) {
+    proximaDirecaoCaminhao = 4;    
+  }else if (evt.keyCode == 39) {
+    proximaDirecaoCaminhao = 2;    
+  }
+}
+);
 
 setInterval(gameLoop, 10);
 

@@ -3,6 +3,11 @@ function colidiuGaeco(){ //colidiu quadras, colidiu delegacia, colidiu prefeitur
         return true;
 }
 
+function colidiuCaminhao(){ //colidiu quadras, colidiu delegacia, colidiu prefeitura, colidiu h, colidiu w
+    if (colidiuDelegacia(caminhaoX, caminhaoY) || colidiuQuadras(caminhaoX, caminhaoY) || colidiuBordas(caminhaoX, caminhaoY) || colidiuQuadrasEspeciais(caminhaoX, caminhaoY) || colidiuPrefeitura(caminhaoX, caminhaoY))
+        return true;
+}
+
 function colidiuDelegacia(objetoX, objetoY){
     if(objetoX >= 10-gaecoW
         && objetoY >= 730-gaecoW
