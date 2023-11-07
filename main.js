@@ -20,7 +20,7 @@ var quadraPadraoY = [ 10, 10, 10, 10, 10, 10,
                       190, 190, 190, 190, 190, 190,
                       370, 370, 370, 370, 370, 370,
                       550, 550, 550, 550, 550, 550,];
-var numeroGaecos = [0];
+var numeroGaecos = 1;
 gaecoX = 501;
 gaecoY = 700;
 gaecoW = 28;
@@ -83,7 +83,6 @@ function desenhaQuadras(){
 
   pincel.fillStyle = 'white';
   pincel.fillRect(660, 190, quadraPrefeituraW, quadraPrefeituraH);
-
 
 }
 
@@ -183,11 +182,12 @@ function verificaGanhou() {
 }
 
 function verificaPerdeu() {
-  if (caminhaoX-caminhaoW >= gaecoX &&
+  if (caminhaoX+caminhaoW >= gaecoX &&
     caminhaoX <= gaecoX+gaecoW &&
-    caminhaoY-caminhaoH >= gaecoY &&
+    caminhaoY+caminhaoH >= gaecoY &&
     caminhaoY <= gaecoY+gaecoH) {
     console.log('perdeu!');
+    reiniciaJogo();
   }  
 }
 
@@ -199,6 +199,23 @@ function getRandom(max) {
 
 function apagaTudo() {
   pincel.clearRect(0,0,770,760);
+}
+
+function reiniciaJogo() {
+gaecoX = 501;
+gaecoY = 700;
+gaecoW = 28;
+gaecoH = 28;
+caminhaoX = 111;
+caminhaoY = 250;
+caminhaoW = 28;
+caminhaoH = 28;
+velocidadeGaeco = 1;
+velocidadeCaminhao = 1;
+direcaoGaeco = 1; // 1 = NORTE, 2 = LESTE, 3 = SUL, 4 = OESTE
+direcaoCaminhao = 3;
+proximaDirecaoCaminhao = 3;
+  
 }
 
 function gameLoop(){
