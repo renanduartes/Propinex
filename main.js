@@ -20,7 +20,7 @@ var quadraPadraoY = [ 10, 10, 10, 10, 10, 10,
                       190, 190, 190, 190, 190, 190,
                       370, 370, 370, 370, 370, 370,
                       550, 550, 550, 550, 550, 550,];
-var numeroGaecos = 1;
+var numeroGaecos = [1];
 gaecoX = 501;
 gaecoY = 700;
 gaecoW = 28;
@@ -92,6 +92,13 @@ function desenhaGaeco()
   gaeco.src = 'img/gaeco.png';
   gaeco.onload = function() {
     pincel.drawImage(gaeco,gaecoX,gaecoY,gaecoW,gaecoH);
+  }
+
+  var gaeco = new Image();
+  gaeco.src = 'img/gaeco.png';
+  gaeco.onload = function() {
+  pincel.drawImage(gaeco,gaecoX,600,gaecoW,gaecoH);
+
 }}
 
 function desenhaPrefeito(x,y)
