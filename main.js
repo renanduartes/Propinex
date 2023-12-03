@@ -21,6 +21,7 @@ var quadraPadraoY = [ 10, 10, 10, 10, 10, 10,
                       370, 370, 370, 370, 370, 370,
                       550, 550, 550, 550, 550, 550,];
 var numeroGaecos = 1;
+var score = 0;
 gaecoX = [501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501];
 gaecoY = [700, 680, 660, 640, 620, 600, 580, 560, 540, 520, 500, 480, 460, 440, 420, 400, 700, 700, 700, 700];
 gaecoW = 28;
@@ -85,6 +86,9 @@ function desenhaQuadras(){
   pincel.fillStyle = 'white';
   pincel.fillRect(660, 190, quadraPrefeituraW, quadraPrefeituraH);
 
+  pincel.fillStyle = 'black';
+  pincel.font = '20px Arial';
+  pincel.strokeText('Score: ' + score, 15, 30);
 }
 
 function desenhaGaeco()
@@ -221,6 +225,7 @@ numeroGaecos = 1;
 gaecoX = [501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501];
 gaecoY = [700, 680, 660, 640, 620, 600, 580, 560, 540, 520, 500, 480, 460, 440, 420, 400, 700, 700, 700, 700];
 direcaoGaeco = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]; // 1 = NORTE, 2 = LESTE, 3 = SUL, 4 = OESTE
+score = 0;
 gameLoop();  
 }
 
@@ -234,6 +239,7 @@ numeroGaecos++;
 gaecoX = [501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501];
 gaecoY = [700, 680, 660, 640, 620, 600, 580, 560, 540, 520, 500, 480, 460, 440, 420, 400, 700, 700, 700, 700];
 direcaoGaeco = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]; // 1 = NORTE, 2 = LESTE, 3 = SUL, 4 = OESTE
+score++;
 gameLoop();
 }
 
