@@ -20,7 +20,7 @@ var quadraPadraoY = [ 10, 10, 10, 10, 10, 10,
                       190, 190, 190, 190, 190, 190,
                       370, 370, 370, 370, 370, 370,
                       550, 550, 550, 550, 550, 550,];
-var numeroGaecos = 6;
+var numeroGaecos = 1;
 gaecoX = [501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501];
 gaecoY = [700, 680, 660, 640, 620, 600, 580, 560, 540, 520, 500, 480, 460, 440, 420, 400, 700, 700, 700, 700];
 gaecoW = 28;
@@ -34,6 +34,7 @@ velocidadeCaminhao = 1;
 direcaoGaeco = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]; // 1 = NORTE, 2 = LESTE, 3 = SUL, 4 = OESTE
 direcaoCaminhao = 3;
 proximaDirecaoCaminhao = 3;
+
 
 function desenhaQuadras(){
   for (let i = 0; i < quadraPadraoX.length; i++) {
@@ -112,7 +113,6 @@ function desenhaCaminhao(x,y)
   caminhao.onload = function() {
     pincel.drawImage(caminhao,caminhaoX,caminhaoY,caminhaoW,caminhaoH);
 }}
-
 
 
 function movimentaGaeco(){
@@ -224,17 +224,17 @@ direcaoGaeco = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]; // 
 gameLoop();  
 }
 
-reiniciaGanhou(){
+function reiniciaGanhou(){
+caminhaoX = 111;
 caminhaoY = 250;
 direcaoGaeco = 1; // 1 = NORTE, 2 = LESTE, 3 = SUL, 4 = OESTE
 direcaoCaminhao = 3;
 proximaDirecaoCaminhao = 3;
-numeroGaecos++;
+numeroGaecos++; 
 gaecoX = [501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501];
 gaecoY = [700, 680, 660, 640, 620, 600, 580, 560, 540, 520, 500, 480, 460, 440, 420, 400, 700, 700, 700, 700];
 direcaoGaeco = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]; // 1 = NORTE, 2 = LESTE, 3 = SUL, 4 = OESTE
-gameLoop(); 
-
+gameLoop();
 }
 
 function gameLoop(){
