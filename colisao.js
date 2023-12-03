@@ -1,5 +1,5 @@
-function colidiuGaeco(){ //colidiu quadras, colidiu delegacia, colidiu prefeitura, colidiu h, colidiu w
-    if (colidiuDelegacia(gaecoX, gaecoY) || colidiuQuadras(gaecoX, gaecoY) || colidiuBordas(gaecoX, gaecoY) || colidiuQuadrasEspeciais(gaecoX, gaecoY) || colidiuPrefeitura(gaecoX, gaecoY))
+function colidiuGaeco(X, Y){ //colidiu quadras, colidiu delegacia, colidiu prefeitura, colidiu h, colidiu w
+        if (colidiuDelegacia(X, Y) || colidiuQuadras(X, Y) || colidiuBordas(X, Y) || colidiuQuadrasEspeciais(X, Y) || colidiuPrefeitura(X, Y))
         return true;
 }
 

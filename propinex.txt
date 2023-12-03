@@ -14,6 +14,12 @@ chegue com o caminhão do lixo na prefeitura para entregar o dinheiro da propina
 - 
 - 
 
+numerogaecos = lista -- quando ganha o jogo adiciona 1 item em cada lista e quando perde o jogo modifica todas as lista para 1 item somente
+direcaogaeco = 1 -- adiciona 1 item com o numero 1 toda vez que ganha o jogo
+gaecox = 501 -- adiciona 1 item com o numero 501 toda vez que ganha o jogo
+gaecoy = 700 -- adiciona 1 item com o numero 700 toda vez que ganha o jogo
+
+
 
 - var fase = 1
 - fazer uma lista vazia com os carros da gaeco
