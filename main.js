@@ -86,9 +86,9 @@ function desenhaQuadras(){
   pincel.fillStyle = 'white';
   pincel.fillRect(660, 190, quadraPrefeituraW, quadraPrefeituraH);
 
-  pincel.fillStyle = 'black';
+  pincel.fillStyle = 'blue';
   pincel.font = '20px Arial';
-  pincel.strokeText('Score: ' + score, 15, 30);
+  pincel.fillText('Pontuação: ' + score, 15, 30);
 }
 
 function desenhaGaeco()
